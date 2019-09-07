@@ -10,6 +10,9 @@
 <body>
 
     <div id="app">
+        <h2>{{ title }} = {{ counter }}</h2>
+        <button v-on:click="riseCounter(5, 'Изменено на 5', $event )">Увеличить на 5</button>
+        <button v-on:click="riseCounter(10, 'Изменено на 10', $event)">Увеличить на 10</button>
         
         
     </div>
@@ -20,9 +23,25 @@
             {
                 el: '#app',  
                 data: { 
-                    
+                    counter : 0,
+                    title: 'Счетчик'
                 },
-                
+                methods: {
+                    riseCounter: function(num, str, event) {
+                        this.counter += num
+                        this.title = str
+
+                        if (num === 5 ) {
+                            // blue 
+                            event.target.style.color = 'blue'
+                        }
+
+                        else if (num === 10 ) {
+                            // red
+                            event.target.style.color = 'red'
+                        }
+                    }
+                }
             }
         ) 
     </script>
