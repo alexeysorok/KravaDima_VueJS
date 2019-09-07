@@ -1,0 +1,58 @@
+<!-- Урок 14. Управление отображением элементов -->
+<!-- template - объединяет элементы -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- версия для разработки, отображает полезные предупреждения в консоли -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>   
+    
+    <title>Vue JS learn</title>
+</head>
+<body>
+
+    <div id="app">
+        
+        <h2 v-if="type === 'a'">A</h2>
+        <h2 v-else-if="type === 'b'">B</h2>
+        <h2 v-else-if="type === 'c'">C</h2>
+        <h2 v-else>not match</h2>
+        
+        <input type="text" v-model="type">
+
+        <template v-if="isVisible">
+                <h2>I am title</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod inventore earum ipsam? Provident consequuntur dolores ducimus voluptatem atque quae aperiam assumenda tempore, quasi deserunt id modi natus iusto. Enim, ut?</p>
+
+        </template>
+        
+
+        <template v-else >
+                <h2 style="color: red">I am title</h2>
+                <p style="color: blue">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod inventore earum ipsam? Provident consequuntur dolores ducimus voluptatem atque quae aperiam assumenda tempore, quasi deserunt id modi natus iusto. Enim, ut?</p>
+        </template>
+        
+
+
+        
+        
+        
+    </div>
+    
+
+    <script>
+        new Vue(
+            {
+                el: '#app',  
+                data: { 
+                    type: 'a',
+                    isVisible: true
+                    
+                },
+                
+            }
+        ) 
+    </script>
+    
+</body>
+</html>
