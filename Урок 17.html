@@ -1,0 +1,71 @@
+<!-- Урок 17. Оптимизация приложения с computed  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- версия для разработки, отображает полезные предупреждения в консоли -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>   
+    
+    <title>Vue JS learn</title>
+</head>
+<body>
+
+    <div id="app">
+        <h2>Counter {{ counter }} \ {{counter2}}</h2>
+        <h3>{{ result() }}</h3>
+        <h3>Computed resut: {{ computedResult }}</h3>
+
+        <button @click="add">Add</button>
+
+        <button @click="sub">Sub</button>
+
+        <button @click="counter2++">Add counter 2</button>
+        
+        
+    </div>
+    
+
+    <script>
+        new Vue(
+            {
+                el: '#app',  
+                data: { 
+                    counter: 0,
+                    condition: '',
+                    counter2: 0
+                    
+                },
+                methods: {
+                    add:function() {
+                        this.counter++
+                        //this.condition = this.counter > 3 ? 'More than 3' : 'Less than 3'
+                        
+
+                    },
+                    sub:function() {
+                        this.counter--
+                        //this.condition = this.counter > 3 ? 'More than 3' : 'Less than 3'
+
+                    },
+
+                    result: function() {
+                        console.log('Result was callsed')
+                        return this.counter > 3 ? 'More than 3' : 'Less than 3'
+
+                    }
+                },
+
+                computed: {
+                    computedResult: function() {
+                        console.log('Computed result was callsed')
+                        return this.counter > 3 ? 'More than 3' : 'Less than 3'
+                    }
+
+                }
+                
+            }
+        ) 
+    </script>
+    
+</body>
+</html>
