@@ -1,0 +1,37 @@
+<!-- Урок 11. Модель для работы с формами -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- версия для разработки, отображает полезные предупреждения в консоли -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>   
+    
+    <title>Vue JS learn</title>
+</head>
+<body>
+
+    <div id="app">
+        <input type="text" v-model.lazy="inputValue">
+        <h2>
+            {{inputValue}}
+        </h2>
+        
+        
+    </div>
+    
+
+    <script>
+        new Vue(
+            {
+                el: '#app',  
+                data: { 
+                    inputValue: 'Initial value'
+                    
+                },
+                
+            }
+        ) 
+    </script>
+    
+</body>
+</html>
