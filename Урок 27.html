@@ -1,0 +1,58 @@
+<!-- Урок 27. Зачем нужны компоненты -->
+<!-- Можно описать одну компоненту, а использовать много раз -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- версия для разработки, отображает полезные предупреждения в консоли -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>   
+    
+    <title>Vue JS learn</title>
+</head>
+<body>
+
+    <div id="app">
+        <my-counter></my-counter>
+        <my-counter></my-counter>
+        <my-counter></my-counter>
+        
+        
+    </div>
+    
+
+    <script>
+
+        Vue.component('my-counter', {
+            template: `
+            
+            <div style="border: 1px solid black; padding: 10px">
+                <h2>Counter: {{counter}}</h2>
+                <button @click="add">Add counter</button>
+            </div>
+             `,
+             data: function() {
+                 return {
+                    counter: 0
+                 }
+             },
+             methods: {
+                 add: function() {
+                     this.counter++
+                 }
+             }
+
+        })
+
+        new Vue(
+            {
+                el: '#app',  
+                data: { 
+                    
+                },
+                
+            }
+        ) 
+    </script>
+    
+</body>
+</html>
